@@ -1,0 +1,1414 @@
+var __routes__ = {}; (function(_root){
+var _nS = function(c,f,b){var e=c.split(f||"."),g=b||_root,d,a;for(d=0,a=e.length;d<a;d++){g=g[e[d]]=g[e[d]]||{}}return g}
+var _qS = function(items){var qs = ''; for(var i=0;i<items.length;i++) {if(items[i]) qs += (qs ? '&' : '') + items[i]}; return qs ? ('?' + qs) : ''}
+var _s = function(p,s){return p+((s===true||(s&&s.secure))?'s':'')+'://'}
+var _wA = function(r){return {ajax:function(c){c=c||{};c.url=r.url;c.type=r.method;return jQuery.ajax(c)}, method:r.method,type:r.method,url:r.url,absoluteURL: function(s){return _s('http',s)+'echo360.org.au'+r.url},webSocketURL: function(s){return _s('ws',s)+'echo360.org.au'+r.url}}}
+_nS('controllers.Accounts'); _root['controllers']['Accounts']['changePasswordModal'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "settings/password"})
+        }
+      ;
+_nS('controllers.Accounts'); _root['controllers']['Accounts']['createPasswordModal'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "settings/password/create"})
+        }
+      ;
+_nS('controllers.Accounts'); _root['controllers']['Accounts']['newPreviewImageUrl'] = 
+        function(url,institutionId) {
+          return _wA({method:"GET", url:"/" + "settings/preview-image" + _qS([(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("url", url), (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("institutionId", institutionId)])})
+        }
+      ;
+_nS('controllers.Accounts'); _root['controllers']['Accounts']['getPasswordStrength'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "get-password-strength"})
+        }
+      ;
+_nS('controllers.Accounts'); _root['controllers']['Accounts']['loneWolfInstructorLanding'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "landing"})
+        }
+      ;
+_nS('controllers.Accounts'); _root['controllers']['Accounts']['alertPreferencesToggle'] = 
+        function(toggle,set) {
+          return _wA({method:"POST", url:"/" + "settings/alert-preferences/toggle/" + (function(k,v) {return v})("toggle", encodeURIComponent(toggle)) + "/set/" + (function(k,v){return !!v})("set", set)})
+        }
+      ;
+_nS('controllers.Activities'); _root['controllers']['Activities']['getActivity'] = 
+        function(activityId) {
+          return _wA({method:"GET", url:"/" + "activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId))})
+        }
+      ;
+_nS('controllers.Activities'); _root['controllers']['Activities']['getActivityForEditing'] = 
+        function(activityId) {
+          return _wA({method:"GET", url:"/" + "activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId)) + "/edit"})
+        }
+      ;
+_nS('controllers.Activities'); _root['controllers']['Activities']['getActivityWithTogglesAndResponse'] = 
+        function(lessonId,activityId) {
+          return _wA({method:"GET", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId))})
+        }
+      ;
+_nS('controllers.Activities'); _root['controllers']['Activities']['getLessonActivityResults'] = 
+        function(lessonId,activityId) {
+          return _wA({method:"GET", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId)) + "/results"})
+        }
+      ;
+_nS('controllers.Activities'); _root['controllers']['Activities']['updateActivity'] = 
+        function(activityId) {
+          return _wA({method:"PUT", url:"/" + "activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId))})
+        }
+      ;
+_nS('controllers.ActivityResponses'); _root['controllers']['ActivityResponses']['deleteActivityResponse'] = 
+        function(lessonId,activityId) {
+          return _wA({method:"DELETE", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId)) + "/response"})
+        }
+      ;
+_nS('controllers.Authentication'); _root['controllers']['Authentication']['changeRoleForm'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "changeRole"})
+        }
+      ;
+_nS('controllers.BatchProcessingJobs'); _root['controllers']['BatchProcessingJobs']['getForUser'] = 
+        function(jobType) {
+          return _wA({method:"GET", url:"/" + "jobs/" + _qS([(jobType == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("jobType", jobType))])})
+        }
+      ;
+_nS('controllers.BatchProcessingJobs'); _root['controllers']['BatchProcessingJobs']['getOne'] = 
+        function(jobId) {
+          return _wA({method:"GET", url:"/" + "job/" + (function(k,v) {return v})("jobId", encodeURIComponent(jobId))})
+        }
+      ;
+_nS('controllers.BatchProcessingJobs'); _root['controllers']['BatchProcessingJobs']['clear'] = 
+        function(jobId) {
+          return _wA({method:"GET", url:"/" + "job/" + (function(k,v) {return v})("jobId", encodeURIComponent(jobId)) + "/clear"})
+        }
+      ;
+_nS('controllers.Buildings'); _root['controllers']['Buildings']['buildingCrudSelect'] = 
+        function(campusId) {
+          return _wA({method:"GET", url:"/" + "buildings/building_crud_select" + _qS([(function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("campusId", campusId)])})
+        }
+      ;
+_nS('controllers.Buildings'); _root['controllers']['Buildings']['delete'] = 
+        function(buildingId) {
+          return _wA({method:"DELETE", url:"/" + "buildings/" + (function(k,v) {return v})("buildingId", encodeURIComponent(buildingId))})
+        }
+      ;
+_nS('controllers.Buildings'); _root['controllers']['Buildings']['get'] = 
+        function(buildingId) {
+          return _wA({method:"GET", url:"/" + "buildings/" + (function(k,v) {return v})("buildingId", encodeURIComponent(buildingId))})
+        }
+      ;
+_nS('controllers.Buildings'); _root['controllers']['Buildings']['update'] = 
+        function(buildingId) {
+          return _wA({method:"PUT", url:"/" + "buildings/" + (function(k,v) {return v})("buildingId", encodeURIComponent(buildingId))})
+        }
+      ;
+_nS('controllers.Campuses'); _root['controllers']['Campuses']['delete'] = 
+        function(campusId) {
+          return _wA({method:"DELETE", url:"/" + "campuses/" + (function(k,v) {return v})("campusId", encodeURIComponent(campusId))})
+        }
+      ;
+_nS('controllers.Campuses'); _root['controllers']['Campuses']['get'] = 
+        function(campusId) {
+          return _wA({method:"GET", url:"/" + "campuses/" + (function(k,v) {return v})("campusId", encodeURIComponent(campusId))})
+        }
+      ;
+_nS('controllers.Campuses'); _root['controllers']['Campuses']['update'] = 
+        function(campusId) {
+          return _wA({method:"PUT", url:"/" + "campuses/" + (function(k,v) {return v})("campusId", encodeURIComponent(campusId))})
+        }
+      ;
+_nS('controllers.Configurations'); _root['controllers']['Configurations']['uploadDeviceCertificateOverride'] = 
+        function(certificatePattern) {
+          return _wA({method:"POST", url:"/" + "admin/configuration/" + (function(k,v) {return v})("certificatePattern", encodeURIComponent(certificatePattern))})
+        }
+      ;
+_nS('controllers.Configurations'); _root['controllers']['Configurations']['deleteDeviceCertificateOverride'] = 
+        function() {
+          return _wA({method:"DELETE", url:"/" + "admin/configuration"})
+        }
+      ;
+_nS('controllers.Captioning'); _root['controllers']['Captioning']['customCaption'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/caption"})
+        }
+      ;
+_nS('controllers.Captioning'); _root['controllers']['Captioning']['removeCaptions'] = 
+        function(mediaId) {
+          return _wA({method:"DELETE", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/caption"})
+        }
+      ;
+_nS('controllers.CaptioningProfiles'); _root['controllers']['CaptioningProfiles']['delete'] = 
+        function() {
+          return _wA({method:"DELETE", url:"/" + "admin/captioning_profile"})
+        }
+      ;
+_nS('controllers.Captures'); _root['controllers']['Captures']['advancedInfo'] = 
+        function(captureId) {
+          return _wA({method:"GET", url:"/" + "admin/captures/" + (function(k,v) {return v})("captureId", encodeURIComponent(captureId)) + "/info"})
+        }
+      ;
+_nS('controllers.Captures'); _root['controllers']['Captures']['delete'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "admin/captures/delete"})
+        }
+      ;
+_nS('controllers.Captures'); _root['controllers']['Captures']['getInstructorFilter'] = 
+        function(instructorId) {
+          return _wA({method:"GET", url:"/" + "admin/captures/filters/instructor" + _qS([(instructorId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("instructorId", instructorId))])})
+        }
+      ;
+_nS('controllers.Captures'); _root['controllers']['Captures']['getLocationFilter'] = 
+        function(campusId,buildingId,roomId) {
+          return _wA({method:"GET", url:"/" + "admin/captures/filters/location" + _qS([(campusId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("campusId", campusId)), (buildingId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("buildingId", buildingId)), (roomId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("roomId", roomId))])})
+        }
+      ;
+_nS('controllers.Captures'); _root['controllers']['Captures']['getPublishInfoFilter'] = 
+        function(termId,organizationId,departmentId,courseId,sectionId) {
+          return _wA({method:"GET", url:"/" + "admin/captures/filters/publishInfo" + _qS([(termId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("termId", termId)), (organizationId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("organizationId", organizationId)), (departmentId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("departmentId", departmentId)), (courseId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("courseId", courseId)), (sectionId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("sectionId", sectionId))])})
+        }
+      ;
+_nS('controllers.Captures'); _root['controllers']['Captures']['index'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "admin/captures"})
+        }
+      ;
+_nS('controllers.Captures'); _root['controllers']['Captures']['search'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "admin/captures/search"})
+        }
+      ;
+_nS('controllers.Captures'); _root['controllers']['Captures']['show'] = 
+        function(captureId) {
+          return _wA({method:"GET", url:"/" + "admin/captures/" + (function(k,v) {return v})("captureId", encodeURIComponent(captureId))})
+        }
+      ;
+_nS('controllers.CaptureSchedules'); _root['controllers']['CaptureSchedules']['addExclusion'] = 
+        function(captureScheduleId) {
+          return _wA({method:"PUT", url:"/" + "schedules/" + (function(k,v) {return v})("captureScheduleId", encodeURIComponent(captureScheduleId)) + "/addExclusion"})
+        }
+      ;
+_nS('controllers.CaptureSchedules'); _root['controllers']['CaptureSchedules']['createInstantSchedule'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "schedules/createInstant"})
+        }
+      ;
+_nS('controllers.CaptureSchedules'); _root['controllers']['CaptureSchedules']['createModal'] = 
+        function(sectionId) {
+          return _wA({method:"GET", url:"/" + "schedules/create" + _qS([(sectionId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("sectionId", sectionId))])})
+        }
+      ;
+_nS('controllers.CaptureSchedules'); _root['controllers']['CaptureSchedules']['delete'] = 
+        function(captureScheduleId) {
+          return _wA({method:"DELETE", url:"/" + "schedules/" + (function(k,v) {return v})("captureScheduleId", encodeURIComponent(captureScheduleId))})
+        }
+      ;
+_nS('controllers.CaptureSchedules'); _root['controllers']['CaptureSchedules']['editModal'] = 
+        function(captureScheduleId) {
+          return _wA({method:"GET", url:"/" + "schedules/" + (function(k,v) {return v})("captureScheduleId", encodeURIComponent(captureScheduleId)) + "/edit"})
+        }
+      ;
+_nS('controllers.CaptureSchedules'); _root['controllers']['CaptureSchedules']['fetchRoomSchedule'] = 
+        function(sectionId,captureScheduleId) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/schedule/" + (function(k,v) {return v})("captureScheduleId", encodeURIComponent(captureScheduleId))})
+        }
+      ;
+_nS('controllers.CaptureSchedules'); _root['controllers']['CaptureSchedules']['index'] = 
+        function(sectionId) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/schedule"})
+        }
+      ;
+_nS('controllers.Courses'); _root['controllers']['Courses']['deleteCourse'] = 
+        function(courseId) {
+          return _wA({method:"DELETE", url:"/" + "admin/courses/" + (function(k,v) {return v})("courseId", encodeURIComponent(courseId))})
+        }
+      ;
+_nS('controllers.Courses'); _root['controllers']['Courses']['editCourse'] = 
+        function(courseId) {
+          return _wA({method:"PUT", url:"/" + "admin/courses/" + (function(k,v) {return v})("courseId", encodeURIComponent(courseId))})
+        }
+      ;
+_nS('controllers.Courses'); _root['controllers']['Courses']['getAddCourseModal'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "admin/courses/getAddCourseModal"})
+        }
+      ;
+_nS('controllers.Courses'); _root['controllers']['Courses']['getEditCourseModal'] = 
+        function(courseId) {
+          return _wA({method:"GET", url:"/" + "admin/courses/" + (function(k,v) {return v})("courseId", encodeURIComponent(courseId)) + "/getEditCourseModal"})
+        }
+      ;
+_nS('controllers.Courses'); _root['controllers']['Courses']['getCourseFilterOptionsByTerm'] = 
+        function(termId) {
+          return _wA({method:"GET", url:"/" + "admin/courses/getCourseFilterOptionsByTerm" + _qS([(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("termId", termId)])})
+        }
+      ;
+_nS('controllers.Courses'); _root['controllers']['Courses']['search'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "admin/courses/search"})
+        }
+      ;
+_nS('controllers.Courses'); _root['controllers']['Courses']['searchName'] = 
+        function(searchText,organizationId,departmentId,limit,pageNumber,hasSections) {
+          return _wA({method:"GET", url:"/" + "courses/search-name" + _qS([(searchText == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("searchText", searchText)), (organizationId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("organizationId", organizationId)), (departmentId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("departmentId", departmentId)), (limit == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("limit", limit)), (pageNumber == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("pageNumber", pageNumber)), (hasSections == null ? null : (function(k,v){return v!=null?(function(k,v){return k+'='+(!!v)})(k,v):''})("hasSections", hasSections))])})
+        }
+      ;
+_nS('controllers.DataPoints'); _root['controllers']['DataPoints']['createForSlideConfused'] = 
+        function(sectionId) {
+          return _wA({method:"POST", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/slide_confused"})
+        }
+      ;
+_nS('controllers.DataPoints'); _root['controllers']['DataPoints']['createForVideoTimeConfused'] = 
+        function(sectionId) {
+          return _wA({method:"POST", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/video_time_confused"})
+        }
+      ;
+_nS('controllers.DataPoints'); _root['controllers']['DataPoints']['deleteForSlideConfused'] = 
+        function(lessonId,slideDeckId,slideId) {
+          return _wA({method:"GET", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/slide/" + (function(k,v) {return v})("slideDeckId", encodeURIComponent(slideDeckId)) + "/" + (function(k,v) {return v})("slideId", encodeURIComponent(slideId)) + "/confused/delete"})
+        }
+      ;
+_nS('controllers.DataPoints'); _root['controllers']['DataPoints']['deleteForVideoTimeConfused'] = 
+        function(lessonId,videoId,time) {
+          return _wA({method:"GET", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/video/" + (function(k,v) {return v})("videoId", encodeURIComponent(videoId)) + "/confused/" + (function(k,v) {return v})("time", time) + "/delete"})
+        }
+      ;
+_nS('controllers.DataPoints'); _root['controllers']['DataPoints']['getForSlideConfused'] = 
+        function(lessonId,slideDeckId,slideId) {
+          return _wA({method:"GET", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/slide/" + (function(k,v) {return v})("slideDeckId", encodeURIComponent(slideDeckId)) + "/" + (function(k,v) {return v})("slideId", encodeURIComponent(slideId)) + "/confused"})
+        }
+      ;
+_nS('controllers.DataPoints'); _root['controllers']['DataPoints']['getForVideoTimeConfused'] = 
+        function(lessonId,videoId,time) {
+          return _wA({method:"GET", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/video/" + (function(k,v) {return v})("videoId", encodeURIComponent(videoId)) + "/confused/" + (function(k,v) {return v})("time", time)})
+        }
+      ;
+_nS('controllers.DataPoints'); _root['controllers']['DataPoints']['getSlideConfusionCount'] = 
+        function(lessonId,slideDeckId,slideId) {
+          return _wA({method:"GET", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/slide/" + (function(k,v) {return v})("slideDeckId", encodeURIComponent(slideDeckId)) + "/" + (function(k,v) {return v})("slideId", encodeURIComponent(slideId)) + "/confused/count"})
+        }
+      ;
+_nS('controllers.DataPoints'); _root['controllers']['DataPoints']['getVideoTimeConfusionCount'] = 
+        function(lessonId,videoId,time) {
+          return _wA({method:"GET", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/video/" + (function(k,v) {return v})("videoId", encodeURIComponent(videoId)) + "/confused/" + (function(k,v) {return v})("time", time) + "/count"})
+        }
+      ;
+_nS('controllers.Departments'); _root['controllers']['Departments']['delete'] = 
+        function(departmentId) {
+          return _wA({method:"DELETE", url:"/" + "departments/" + (function(k,v) {return v})("departmentId", encodeURIComponent(departmentId))})
+        }
+      ;
+_nS('controllers.Departments'); _root['controllers']['Departments']['getAddDepartmentModal'] = 
+        function(organizationId) {
+          return _wA({method:"GET", url:"/" + "departments/add_modal" + _qS([(organizationId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("organizationId", organizationId))])})
+        }
+      ;
+_nS('controllers.Departments'); _root['controllers']['Departments']['getEditDepartmentModal'] = 
+        function(departmentId) {
+          return _wA({method:"GET", url:"/" + "departments/" + (function(k,v) {return v})("departmentId", encodeURIComponent(departmentId)) + "/edit_modal"})
+        }
+      ;
+_nS('controllers.Departments'); _root['controllers']['Departments']['getSettings'] = 
+        function(departmentId) {
+          return _wA({method:"GET", url:"/" + "departments/" + (function(k,v) {return v})("departmentId", encodeURIComponent(departmentId)) + "/settings"})
+        }
+      ;
+_nS('controllers.Departments'); _root['controllers']['Departments']['options'] = 
+        function(organizationId) {
+          return _wA({method:"GET", url:"/" + "organizations/departmentOptions" + _qS([(organizationId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("organizationId", organizationId))])})
+        }
+      ;
+_nS('controllers.Departments'); _root['controllers']['Departments']['update'] = 
+        function(departmentId) {
+          return _wA({method:"PUT", url:"/" + "departments/" + (function(k,v) {return v})("departmentId", encodeURIComponent(departmentId))})
+        }
+      ;
+_nS('controllers.EchoAdmins'); _root['controllers']['EchoAdmins']['delete'] = 
+        function(userId) {
+          return _wA({method:"DELETE", url:"/" + "echoAdmin/admins/" + (function(k,v) {return v})("userId", encodeURIComponent(userId))})
+        }
+      ;
+_nS('controllers.EchoAdmins'); _root['controllers']['EchoAdmins']['update'] = 
+        function(userId) {
+          return _wA({method:"PUT", url:"/" + "echoAdmin/admins/" + (function(k,v) {return v})("userId", encodeURIComponent(userId))})
+        }
+      ;
+_nS('controllers.UserAgreements'); _root['controllers']['UserAgreements']['acceptEula'] = 
+        function(redirectUrl) {
+          return _wA({method:"GET", url:"/" + "eula/accept" + _qS([(function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("redirectUrl", redirectUrl)])})
+        }
+      ;
+_nS('controllers.Gradebook'); _root['controllers']['Gradebook']['importGrades'] = 
+        function(sectionId) {
+          return _wA({method:"POST", url:"/" + "front-end-api/egc/v1/en-us/user/grades/section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId))})
+        }
+      ;
+_nS('controllers.Home'); _root['controllers']['Home']['getSectionEngagementStats'] = 
+        function(sectionId) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/engagementGraph"})
+        }
+      ;
+_nS('controllers.Institutions'); _root['controllers']['Institutions']['getInstitutionsWithIdpid'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "institution/get_idpid"})
+        }
+      ;
+_nS('controllers.InstitutionSettings'); _root['controllers']['InstitutionSettings']['getAuthzMSDownPage'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "institution/authz-down"})
+        }
+      ;
+_nS('controllers.InstitutionSettings'); _root['controllers']['InstitutionSettings']['getInstitutionSettings'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "institution/settings"})
+        }
+      ;
+_nS('controllers.InstitutionSettings'); _root['controllers']['InstitutionSettings']['getNoAuthzPage'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "institution/no-authz"})
+        }
+      ;
+_nS('controllers.InstitutionUsers'); _root['controllers']['InstitutionUsers']['batchUpdateRoles'] = 
+        function() {
+          return _wA({method:"PUT", url:"/" + "admin/users/roles"})
+        }
+      ;
+_nS('controllers.InstitutionUsers'); _root['controllers']['InstitutionUsers']['deleteUser'] = 
+        function(id) {
+          return _wA({method:"DELETE", url:"/" + "admin/users/" + (function(k,v) {return v})("id", encodeURIComponent(id))})
+        }
+      ;
+_nS('controllers.InstitutionUsers'); _root['controllers']['InstitutionUsers']['getEditUserModal'] = 
+        function(userId) {
+          return _wA({method:"GET", url:"/" + "admin/users/" + (function(k,v) {return v})("userId", encodeURIComponent(userId)) + "/edit"})
+        }
+      ;
+_nS('controllers.InstitutionUsers'); _root['controllers']['InstitutionUsers']['getDeleteUserModal'] = 
+        function(userId) {
+          return _wA({method:"GET", url:"/" + "admin/users/" + (function(k,v) {return v})("userId", encodeURIComponent(userId)) + "/delete"})
+        }
+      ;
+_nS('controllers.InstitutionUsers'); _root['controllers']['InstitutionUsers']['getInstructorOptionsByInstitution'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "admin/users/getInstructorFilterOptionsByInstutition"})
+        }
+      ;
+_nS('controllers.InstitutionUsers'); _root['controllers']['InstitutionUsers']['getInstructorOptionsByTerm'] = 
+        function(termId) {
+          return _wA({method:"GET", url:"/" + "admin/users/getInstructorFilterOptionsByTerm" + _qS([(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("termId", termId)])})
+        }
+      ;
+_nS('controllers.InstitutionUsers'); _root['controllers']['InstitutionUsers']['reinstateAll'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "admin/users/reinstateAll"})
+        }
+      ;
+_nS('controllers.InstitutionUsers'); _root['controllers']['InstitutionUsers']['resendEmailAll'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "admin/users/resendInviteAll"})
+        }
+      ;
+_nS('controllers.InstitutionUsers'); _root['controllers']['InstitutionUsers']['resetLmsAccounts'] = 
+        function(id) {
+          return _wA({method:"PUT", url:"/" + "admin/users/" + (function(k,v) {return v})("id", encodeURIComponent(id)) + "/lms-accounts/reset"})
+        }
+      ;
+_nS('controllers.InstitutionUsers'); _root['controllers']['InstitutionUsers']['revokeAll'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "admin/users/revokeAll"})
+        }
+      ;
+_nS('controllers.InstitutionUsers'); _root['controllers']['InstitutionUsers']['search'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "admin/users"})
+        }
+      ;
+_nS('controllers.Invitations'); _root['controllers']['Invitations']['inviteSectionInstructors'] = 
+        function(sectionId) {
+          return _wA({method:"POST", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/instructor_invitations"})
+        }
+      ;
+_nS('controllers.Invitations'); _root['controllers']['Invitations']['inviteSectionStudents'] = 
+        function(sectionId) {
+          return _wA({method:"POST", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/student_invitations"})
+        }
+      ;
+_nS('controllers.Invitations'); _root['controllers']['Invitations']['inviteSectionTeachingAssistants'] = 
+        function(sectionId) {
+          return _wA({method:"POST", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/teaching_assistant_invitations"})
+        }
+      ;
+_nS('controllers.Invitations'); _root['controllers']['Invitations']['resendSectionInvitations'] = 
+        function(sectionId) {
+          return _wA({method:"POST", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/resend_invitations"})
+        }
+      ;
+_nS('controllers.Invitations'); _root['controllers']['Invitations']['sendSectionInvitationsFromCsv'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "section_invitations/csv"})
+        }
+      ;
+_nS('controllers.Lessons'); _root['controllers']['Lessons']['canDeleteLesson'] = 
+        function(lessonId) {
+          return _wA({method:"GET", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/delete"})
+        }
+      ;
+_nS('controllers.Lessons'); _root['controllers']['Lessons']['create'] = 
+        function(sectionId) {
+          return _wA({method:"POST", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/lesson"})
+        }
+      ;
+_nS('controllers.Lessons'); _root['controllers']['Lessons']['update'] = 
+        function(lessonId) {
+          return _wA({method:"PUT", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId))})
+        }
+      ;
+_nS('controllers.LessonActivities'); _root['controllers']['LessonActivities']['getWithResults'] = 
+        function(lessonId,activityId) {
+          return _wA({method:"GET", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId)) + "/getWithResults"})
+        }
+      ;
+_nS('controllers.LessonActivities'); _root['controllers']['LessonActivities']['openActivity'] = 
+        function(lessonId,activityId) {
+          return _wA({method:"POST", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId)) + "/open"})
+        }
+      ;
+_nS('controllers.LessonActivities'); _root['controllers']['LessonActivities']['closeActivity'] = 
+        function(lessonId,activityId) {
+          return _wA({method:"POST", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId)) + "/close"})
+        }
+      ;
+_nS('controllers.LessonActivities'); _root['controllers']['LessonActivities']['openResults'] = 
+        function(lessonId,activityId) {
+          return _wA({method:"POST", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId)) + "/open_results"})
+        }
+      ;
+_nS('controllers.LessonActivities'); _root['controllers']['LessonActivities']['closeResults'] = 
+        function(lessonId,activityId) {
+          return _wA({method:"POST", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId)) + "/close_results"})
+        }
+      ;
+_nS('controllers.LessonActivities'); _root['controllers']['LessonActivities']['openAnswers'] = 
+        function(lessonId,activityId) {
+          return _wA({method:"POST", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId)) + "/open_answers"})
+        }
+      ;
+_nS('controllers.LessonActivities'); _root['controllers']['LessonActivities']['closeAnswers'] = 
+        function(lessonId,activityId) {
+          return _wA({method:"POST", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId)) + "/close_answers"})
+        }
+      ;
+_nS('controllers.LessonActivities'); _root['controllers']['LessonActivities']['resetActivity'] = 
+        function(lessonId,activityId) {
+          return _wA({method:"POST", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/activity/" + (function(k,v) {return v})("activityId", encodeURIComponent(activityId)) + "/reset"})
+        }
+      ;
+_nS('controllers.LessonSlides'); _root['controllers']['LessonSlides']['hideSlide'] = 
+        function(lessonId,slideId) {
+          return _wA({method:"PUT", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/slide/" + (function(k,v) {return v})("slideId", encodeURIComponent(slideId)) + "/hide"})
+        }
+      ;
+_nS('controllers.LessonSlides'); _root['controllers']['LessonSlides']['showSlide'] = 
+        function(lessonId,slideId) {
+          return _wA({method:"PUT", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/slide/" + (function(k,v) {return v})("slideId", encodeURIComponent(slideId)) + "/show"})
+        }
+      ;
+_nS('controllers.Library'); _root['controllers']['Library']['getImportSlideDeckTray'] = 
+        function(pubMediaId) {
+          return _wA({method:"GET", url:"/" + "library/media/" + (function(k,v) {return v})("pubMediaId", encodeURIComponent(pubMediaId)) + "/slideImporterTray"})
+        }
+      ;
+_nS('controllers.Library'); _root['controllers']['Library']['getMediaListItem'] = 
+        function(pubMediaId) {
+          return _wA({method:"GET", url:"/" + "library/media/" + (function(k,v) {return v})("pubMediaId", encodeURIComponent(pubMediaId))})
+        }
+      ;
+_nS('controllers.Library'); _root['controllers']['Library']['importSlideDeckModalContent'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "library/slide_deck/import_modal_content"})
+        }
+      ;
+_nS('controllers.Library'); _root['controllers']['Library']['importVideoModalContent'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "library/video/import_modal_content"})
+        }
+      ;
+_nS('controllers.Library'); _root['controllers']['Library']['search'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "library/search"})
+        }
+      ;
+_nS('controllers.lti.LmsProfiles'); _root['controllers']['lti']['LmsProfiles']['createLmsProfile'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "lti/profiles/"})
+        }
+      ;
+_nS('controllers.lti.LmsProfiles'); _root['controllers']['lti']['LmsProfiles']['editLmsProfile'] = 
+        function(id) {
+          return _wA({method:"PUT", url:"/" + "lti/profiles/" + (function(k,v) {return v})("id", encodeURIComponent(id))})
+        }
+      ;
+_nS('controllers.lti.LmsProfiles'); _root['controllers']['lti']['LmsProfiles']['deleteLmsProfile'] = 
+        function(id) {
+          return _wA({method:"DELETE", url:"/" + "lti/profiles/" + (function(k,v) {return v})("id", encodeURIComponent(id))})
+        }
+      ;
+_nS('controllers.lti.LmsProfiles'); _root['controllers']['lti']['LmsProfiles']['getNewProfileModal'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "lti/profiles/new"})
+        }
+      ;
+_nS('controllers.lti.LmsResources'); _root['controllers']['lti']['LmsResources']['exportLmsResource'] = 
+        function(lmsProfileId,lmsLinkId) {
+          return _wA({method:"POST", url:"/" + "lti/" + (function(k,v) {return v})("lmsProfileId", encodeURIComponent(lmsProfileId)) + "/links/" + (function(k,v) {return v})("lmsLinkId", encodeURIComponent(lmsLinkId)) + "/export"})
+        }
+      ;
+_nS('controllers.lti.LmsResources'); _root['controllers']['lti']['LmsResources']['getSectionExportOptions'] = 
+        function(lmsProfileId,lmsLinkId) {
+          return _wA({method:"GET", url:"/" + "lti/" + (function(k,v) {return v})("lmsProfileId", encodeURIComponent(lmsProfileId)) + "/links/" + (function(k,v) {return v})("lmsLinkId", encodeURIComponent(lmsLinkId)) + "/export_options"})
+        }
+      ;
+_nS('controllers.lti.LmsResources'); _root['controllers']['lti']['LmsResources']['unlinkResource'] = 
+        function(lmsProfileId,lmsLinkId) {
+          return _wA({method:"DELETE", url:"/" + "lti/" + (function(k,v) {return v})("lmsProfileId", encodeURIComponent(lmsProfileId)) + "/links/" + (function(k,v) {return v})("lmsLinkId", encodeURIComponent(lmsLinkId))})
+        }
+      ;
+_nS('controllers.lti.LtiContexts'); _root['controllers']['lti']['LtiContexts']['delete'] = 
+        function(profileId,contextId,sectionId) {
+          return _wA({method:"DELETE", url:"/" + "lti/" + (function(k,v) {return v})("profileId", encodeURIComponent(profileId)) + "/contexts/" + (function(k,v) {return v})("contextId", encodeURIComponent(contextId)) + "/section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId))})
+        }
+      ;
+_nS('controllers.ZoomProfiles'); _root['controllers']['ZoomProfiles']['createZoomProfile'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "zoom/profiles"})
+        }
+      ;
+_nS('controllers.ZoomProfiles'); _root['controllers']['ZoomProfiles']['getNewZoomConfigModal'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "zoom/profiles/new"})
+        }
+      ;
+_nS('controllers.ZoomProfiles'); _root['controllers']['ZoomProfiles']['deleteZoomProfile'] = 
+        function(id) {
+          return _wA({method:"DELETE", url:"/" + "zoom/profiles/" + (function(k,v) {return v})("id", encodeURIComponent(id))})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['advancedInfo'] = 
+        function(mediaId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/advanced-info"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['captureEditorModal'] = 
+        function(captureOccurrenceId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("captureOccurrenceId", encodeURIComponent(captureOccurrenceId)) + "/capture-info-modal"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['changeOwner'] = 
+        function() {
+          return _wA({method:"PUT", url:"/" + "media/change-owner"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['changeOwnerModal'] = 
+        function(mediaId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/change-owner-modal"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['copy'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/copy"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['copyCapture'] = 
+        function(captureOccurrenceId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("captureOccurrenceId", encodeURIComponent(captureOccurrenceId)) + "/copy-capture"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['delete'] = 
+        function(mediaId) {
+          return _wA({method:"DELETE", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId))})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['details'] = 
+        function(mediaId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId))})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['editInfo'] = 
+        function(mediaId) {
+          return _wA({method:"PUT", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/info"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['editorModal'] = 
+        function(mediaId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/info_modal"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['getEditorKey'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/get_editor_key"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['lightVideoModal'] = 
+        function(mediaId,time,contextId,contextType) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/modal-player" + _qS([(time == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("time", time)), (contextId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("contextId", contextId)), (contextType == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("contextType", contextType))])})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['publishInfo'] = 
+        function(mediaId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/publishing"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['refreshEditorKey'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/refresh_editor_key"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['reprocess'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/reprocess"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['shareInfo'] = 
+        function(mediaId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/sharing"})
+        }
+      ;
+_nS('controllers.Media'); _root['controllers']['Media']['shareModal'] = 
+        function(mediaId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/sharing_modal"})
+        }
+      ;
+_nS('controllers.MediaDownload'); _root['controllers']['MediaDownload']['downloadModal'] = 
+        function(mediaId,sectionId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/download-modal" + _qS([(sectionId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("sectionId", sectionId))])})
+        }
+      ;
+_nS('controllers.MediaDownload'); _root['controllers']['MediaDownload']['downloadFile'] = 
+        function(s3Url,fileName,mediaId) {
+        
+          if (true) {
+            return _wA({method:"GET", url:"/" + "media/download" + _qS([(s3Url == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("s3Url", s3Url)), (fileName == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("fileName", fileName)), (mediaId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("mediaId", mediaId))])})
+          }
+        
+        }
+      ;
+_nS('controllers.MediaUpload'); _root['controllers']['MediaUpload']['process'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "media_api/process"})
+        }
+      ;
+_nS('controllers.MediaUpload'); _root['controllers']['MediaUpload']['processCapture'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "media_api/process/capture"})
+        }
+      ;
+_nS('controllers.MediaUpload'); _root['controllers']['MediaUpload']['retryCapture'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "media_api/retry/capture"})
+        }
+      ;
+_nS('controllers.MediaUpload'); _root['controllers']['MediaUpload']['uploadAndPublish'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "media_api/upload_and_publish"})
+        }
+      ;
+_nS('controllers.Notes'); _root['controllers']['Notes']['create'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "notes"})
+        }
+      ;
+_nS('controllers.Notes'); _root['controllers']['Notes']['delete'] = 
+        function(noteId) {
+          return _wA({method:"DELETE", url:"/" + "notes/" + (function(k,v) {return v})("noteId", encodeURIComponent(noteId))})
+        }
+      ;
+_nS('controllers.Notes'); _root['controllers']['Notes']['deleteSlideRef'] = 
+        function(noteId) {
+          return _wA({method:"DELETE", url:"/" + "notes/" + (function(k,v) {return v})("noteId", encodeURIComponent(noteId)) + "/slide"})
+        }
+      ;
+_nS('controllers.Notes'); _root['controllers']['Notes']['deleteVideoRef'] = 
+        function(noteId) {
+          return _wA({method:"DELETE", url:"/" + "notes/" + (function(k,v) {return v})("noteId", encodeURIComponent(noteId)) + "/video"})
+        }
+      ;
+_nS('controllers.Notes'); _root['controllers']['Notes']['downloadForLesson'] = 
+        function(lessonId) {
+          return _wA({method:"GET", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/notes/download"})
+        }
+      ;
+_nS('controllers.Notes'); _root['controllers']['Notes']['downloadForSection'] = 
+        function(sectionId) {
+        
+          if (true) {
+            return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/notes/download"})
+          }
+        
+        }
+      ;
+_nS('controllers.Notes'); _root['controllers']['Notes']['update'] = 
+        function(noteId) {
+          return _wA({method:"PUT", url:"/" + "notes/" + (function(k,v) {return v})("noteId", encodeURIComponent(noteId))})
+        }
+      ;
+_nS('controllers.Notes'); _root['controllers']['Notes']['updateSlideRef'] = 
+        function(noteId) {
+          return _wA({method:"PUT", url:"/" + "notes/" + (function(k,v) {return v})("noteId", encodeURIComponent(noteId)) + "/slide"})
+        }
+      ;
+_nS('controllers.Notes'); _root['controllers']['Notes']['updateVideoRef'] = 
+        function(noteId) {
+          return _wA({method:"PUT", url:"/" + "notes/" + (function(k,v) {return v})("noteId", encodeURIComponent(noteId)) + "/video"})
+        }
+      ;
+_nS('controllers.Oauth2'); _root['controllers']['Oauth2']['deleteClient'] = 
+        function(clientId) {
+          return _wA({method:"DELETE", url:"/" + "oauth2/client/" + (function(k,v) {return v})("clientId", encodeURIComponent(clientId))})
+        }
+      ;
+_nS('controllers.Oauth'); _root['controllers']['Oauth']['deleteClient'] = 
+        function(clientId) {
+          return _wA({method:"DELETE", url:"/" + "oauth2/old/client/" + (function(k,v) {return v})("clientId", encodeURIComponent(clientId))})
+        }
+      ;
+_nS('controllers.Oauth'); _root['controllers']['Oauth']['globalClients'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "echoAdmin/oauth"})
+        }
+      ;
+_nS('controllers.Organizations'); _root['controllers']['Organizations']['create'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "organizations"})
+        }
+      ;
+_nS('controllers.Organizations'); _root['controllers']['Organizations']['getAddOrganizationModal'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "organizations/add_modal"})
+        }
+      ;
+_nS('controllers.Organizations'); _root['controllers']['Organizations']['getEditOrganizationModal'] = 
+        function(organizationId) {
+          return _wA({method:"GET", url:"/" + "organizations/" + (function(k,v) {return v})("organizationId", encodeURIComponent(organizationId)) + "/edit_modal"})
+        }
+      ;
+_nS('controllers.Organizations'); _root['controllers']['Organizations']['getSettings'] = 
+        function(organizationId) {
+          return _wA({method:"GET", url:"/" + "organizations/" + (function(k,v) {return v})("organizationId", encodeURIComponent(organizationId)) + "/settings"})
+        }
+      ;
+_nS('controllers.Organizations'); _root['controllers']['Organizations']['update'] = 
+        function(organizationId) {
+          return _wA({method:"PUT", url:"/" + "organizations/" + (function(k,v) {return v})("organizationId", encodeURIComponent(organizationId))})
+        }
+      ;
+_nS('controllers.Organizations'); _root['controllers']['Organizations']['delete'] = 
+        function(organizationId) {
+          return _wA({method:"DELETE", url:"/" + "organizations/" + (function(k,v) {return v})("organizationId", encodeURIComponent(organizationId))})
+        }
+      ;
+_nS('controllers.Pingone'); _root['controllers']['Pingone']['beginLogin'] = 
+        function(instId,afterLoginUrl) {
+          return _wA({method:"GET", url:"/" + "pingone/login/begin" + _qS([(instId == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("instId", instId)), (afterLoginUrl == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("afterLoginUrl", afterLoginUrl))])})
+        }
+      ;
+_nS('controllers.Pingone'); _root['controllers']['Pingone']['connectIdp'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "pingone/conf/addIdp"})
+        }
+      ;
+_nS('controllers.Pingone'); _root['controllers']['Pingone']['deleteIdp'] = 
+        function() {
+          return _wA({method:"DELETE", url:"/" + "pingone/conf/deleteIdp"})
+        }
+      ;
+_nS('controllers.PlayerAnalytics'); _root['controllers']['PlayerAnalytics']['recordSlideEvent'] = 
+        function(mediaId,hasTransitioned) {
+          return _wA({method:"POST", url:"/" + "deck/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/viewed" + _qS([(hasTransitioned == null ? null : (function(k,v){return k+'='+(!!v)})("hasTransitioned", hasTransitioned))])})
+        }
+      ;
+_nS('controllers.PlayerAnalytics'); _root['controllers']['PlayerAnalytics']['recordVideoEvent'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "video/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/viewed"})
+        }
+      ;
+_nS('controllers.PlayerAnalytics'); _root['controllers']['PlayerAnalytics']['recordVideoPlay'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "video/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/played"})
+        }
+      ;
+_nS('controllers.PromoCodes'); _root['controllers']['PromoCodes']['generate'] = 
+        function(count) {
+          return _wA({method:"GET", url:"/" + "echoAdmin/promo_codes/generate/" + (function(k,v) {return v})("count", count)})
+        }
+      ;
+_nS('controllers.PromoCodes'); _root['controllers']['PromoCodes']['isRedeemable'] = 
+        function(promoCode) {
+          return _wA({method:"GET", url:"/" + "promo_codes/" + (function(k,v) {return v})("promoCode", encodeURIComponent(promoCode)) + "/check"})
+        }
+      ;
+_nS('controllers.PromoCodes'); _root['controllers']['PromoCodes']['redeem'] = 
+        function(promoCode) {
+          return _wA({method:"GET", url:"/" + "promo_codes/" + (function(k,v) {return v})("promoCode", encodeURIComponent(promoCode)) + "/redeem"})
+        }
+      ;
+_nS('controllers.PublicInstitutions'); _root['controllers']['PublicInstitutions']['getByCountry'] = 
+        function(countryCode) {
+          return _wA({method:"GET", url:"/" + "publicInstitutions/country/" + (function(k,v) {return v})("countryCode", encodeURIComponent(countryCode))})
+        }
+      ;
+_nS('controllers.PublicInstitutions'); _root['controllers']['PublicInstitutions']['getByRegion'] = 
+        function(regionCode) {
+          return _wA({method:"GET", url:"/" + "publicInstitutions/region/" + (function(k,v) {return v})("regionCode", encodeURIComponent(regionCode))})
+        }
+      ;
+_nS('controllers.PublicInstitutions'); _root['controllers']['PublicInstitutions']['link'] = 
+        function(institutionId) {
+          return _wA({method:"POST", url:"/" + "public_institution/" + (function(k,v) {return v})("institutionId", encodeURIComponent(institutionId))})
+        }
+      ;
+_nS('controllers.PublicInstitutions'); _root['controllers']['PublicInstitutions']['unlink'] = 
+        function(publicInstitutionId) {
+          return _wA({method:"POST", url:"/" + "public_institution/unlink/" + (function(k,v) {return v})("publicInstitutionId", encodeURIComponent(publicInstitutionId))})
+        }
+      ;
+_nS('controllers.PublicLinks'); _root['controllers']['PublicLinks']['createForMedia'] = 
+        function(mediaId,linkType) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/link/" + (function(k,v) {return v})("linkType", encodeURIComponent(linkType))})
+        }
+      ;
+_nS('controllers.PublicLinks'); _root['controllers']['PublicLinks']['createForSection'] = 
+        function(sectionId) {
+          return _wA({method:"POST", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/public_links"})
+        }
+      ;
+_nS('controllers.PublicLinks'); _root['controllers']['PublicLinks']['delete'] = 
+        function(linkId) {
+          return _wA({method:"DELETE", url:"/" + "public_links/" + (function(k,v) {return v})("linkId", encodeURIComponent(linkId))})
+        }
+      ;
+_nS('controllers.PublicLinks'); _root['controllers']['PublicLinks']['updatePublicLink'] = 
+        function(linkId) {
+          return _wA({method:"PUT", url:"/" + "public_links/" + (function(k,v) {return v})("linkId", encodeURIComponent(linkId))})
+        }
+      ;
+_nS('controllers.PublicLinks'); _root['controllers']['PublicLinks']['video'] = 
+        function(encryptedId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("encryptedId", encodeURIComponent(encryptedId)) + "/public"})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['capturePublisherModal'] = 
+        function(captureOccurrenceId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("captureOccurrenceId", encodeURIComponent(captureOccurrenceId)) + "/capture-publisher-modal"})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['editPublishedOptions'] = 
+        function(mediaId,lessonId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/availability"})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['lessonOptions'] = 
+        function(sectionId) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/lessonOptions"})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['makeAvailable'] = 
+        function(mediaId,lessonId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/make_available"})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['makeUnavailable'] = 
+        function(mediaId,lessonId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/make_unavailable"})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['publishToLesson'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/publish/lesson"})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['publishToNewLesson'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/publish/new_lesson"})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['publishToPeople'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/publish/person"})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['publishedOptionsModal'] = 
+        function(mediaId,lessonId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/options_modal"})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['publisherModal'] = 
+        function(mediaId) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/publisher_modal"})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['unpublish'] = 
+        function(lessonId,mediaId) {
+          return _wA({method:"DELETE", url:"/" + "lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/unpublish/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId))})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['unshare'] = 
+        function(userId,mediaId) {
+          return _wA({method:"DELETE", url:"/" + "user/" + (function(k,v) {return v})("userId", encodeURIComponent(userId)) + "/unshare/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId))})
+        }
+      ;
+_nS('controllers.Publish'); _root['controllers']['Publish']['unshareFromSelf'] = 
+        function(mediaId) {
+          return _wA({method:"DELETE", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/unshare"})
+        }
+      ;
+_nS('controllers.QuestionResponses'); _root['controllers']['QuestionResponses']['create'] = 
+        function(questionId) {
+          return _wA({method:"POST", url:"/" + "questions/" + (function(k,v) {return v})("questionId", encodeURIComponent(questionId)) + "/responses"})
+        }
+      ;
+_nS('controllers.QuestionResponses'); _root['controllers']['QuestionResponses']['delete'] = 
+        function(responseId) {
+          return _wA({method:"DELETE", url:"/" + "question_responses/" + (function(k,v) {return v})("responseId", encodeURIComponent(responseId))})
+        }
+      ;
+_nS('controllers.QuestionResponses'); _root['controllers']['QuestionResponses']['dislike'] = 
+        function(responseId) {
+          return _wA({method:"POST", url:"/" + "question_responses/" + (function(k,v) {return v})("responseId", encodeURIComponent(responseId)) + "/dislike"})
+        }
+      ;
+_nS('controllers.QuestionResponses'); _root['controllers']['QuestionResponses']['getOne'] = 
+        function(responseId) {
+          return _wA({method:"GET", url:"/" + "question_response" + _qS([(responseId == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("responseId", responseId))])})
+        }
+      ;
+_nS('controllers.QuestionResponses'); _root['controllers']['QuestionResponses']['like'] = 
+        function(responseId) {
+          return _wA({method:"POST", url:"/" + "question_responses/" + (function(k,v) {return v})("responseId", encodeURIComponent(responseId)) + "/like"})
+        }
+      ;
+_nS('controllers.QuestionResponses'); _root['controllers']['QuestionResponses']['update'] = 
+        function(responseId) {
+          return _wA({method:"PUT", url:"/" + "question_responses/" + (function(k,v) {return v})("responseId", encodeURIComponent(responseId))})
+        }
+      ;
+_nS('controllers.Questions'); _root['controllers']['Questions']['bookmark'] = 
+        function(questionId) {
+          return _wA({method:"POST", url:"/" + "questions/" + (function(k,v) {return v})("questionId", encodeURIComponent(questionId)) + "/bookmark"})
+        }
+      ;
+_nS('controllers.Questions'); _root['controllers']['Questions']['create'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "questions"})
+        }
+      ;
+_nS('controllers.Questions'); _root['controllers']['Questions']['delete'] = 
+        function(questionId) {
+          return _wA({method:"DELETE", url:"/" + "questions/" + (function(k,v) {return v})("questionId", encodeURIComponent(questionId))})
+        }
+      ;
+_nS('controllers.Questions'); _root['controllers']['Questions']['forget'] = 
+        function(questionId) {
+          return _wA({method:"POST", url:"/" + "questions/" + (function(k,v) {return v})("questionId", encodeURIComponent(questionId)) + "/forget"})
+        }
+      ;
+_nS('controllers.Questions'); _root['controllers']['Questions']['dislike'] = 
+        function(questionId) {
+          return _wA({method:"POST", url:"/" + "questions/" + (function(k,v) {return v})("questionId", encodeURIComponent(questionId)) + "/dislike"})
+        }
+      ;
+_nS('controllers.Questions'); _root['controllers']['Questions']['getOne'] = 
+        function(questionId,isClassroom) {
+          return _wA({method:"GET", url:"/" + "questions/single" + _qS([(questionId == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("questionId", questionId)), (isClassroom == null ? null : (function(k,v){return k+'='+(!!v)})("isClassroom", isClassroom))])})
+        }
+      ;
+_nS('controllers.Questions'); _root['controllers']['Questions']['getWithResponses'] = 
+        function(questionId,isClassroom) {
+          return _wA({method:"GET", url:"/" + "question/full" + _qS([(questionId == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("questionId", questionId)), (isClassroom == null ? null : (function(k,v){return k+'='+(!!v)})("isClassroom", isClassroom))])})
+        }
+      ;
+_nS('controllers.Questions'); _root['controllers']['Questions']['like'] = 
+        function(questionId) {
+          return _wA({method:"POST", url:"/" + "questions/" + (function(k,v) {return v})("questionId", encodeURIComponent(questionId)) + "/like"})
+        }
+      ;
+_nS('controllers.Questions'); _root['controllers']['Questions']['search'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "questions/search"})
+        }
+      ;
+_nS('controllers.Questions'); _root['controllers']['Questions']['sectionQuestionsIndex'] = 
+        function(sectionId) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/questions"})
+        }
+      ;
+_nS('controllers.Questions'); _root['controllers']['Questions']['update'] = 
+        function(questionId) {
+          return _wA({method:"PUT", url:"/" + "questions/" + (function(k,v) {return v})("questionId", encodeURIComponent(questionId))})
+        }
+      ;
+_nS('controllers.RoomConfigurations'); _root['controllers']['RoomConfigurations']['captureQualities'] = 
+        function(roomId,preferOneTouchForDefault) {
+          return _wA({method:"GET", url:"/" + "room_configurations/capture_qualities" + _qS([(function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("roomId", roomId), (preferOneTouchForDefault == null ? null : (function(k,v){return k+'='+(!!v)})("preferOneTouchForDefault", preferOneTouchForDefault))])})
+        }
+      ;
+_nS('controllers.RoomConfigurations'); _root['controllers']['RoomConfigurations']['edit'] = 
+        function(roomId) {
+          return _wA({method:"GET", url:"/" + "room_configurations/" + (function(k,v) {return v})("roomId", encodeURIComponent(roomId)) + "/edit"})
+        }
+      ;
+_nS('controllers.RoomConfigurations'); _root['controllers']['RoomConfigurations']['getDeviceType'] = 
+        function(roomId) {
+          return _wA({method:"GET", url:"/" + "room_configurations/device_type" + _qS([(function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("roomId", roomId)])})
+        }
+      ;
+_nS('controllers.RoomConfigurations'); _root['controllers']['RoomConfigurations']['getLogicalInputs'] = 
+        function(roomId,preferOneTouchForDefault) {
+          return _wA({method:"GET", url:"/" + "room_configurations/logical_inputs" + _qS([(function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("roomId", roomId), (preferOneTouchForDefault == null ? null : (function(k,v){return k+'='+(!!v)})("preferOneTouchForDefault", preferOneTouchForDefault))])})
+        }
+      ;
+_nS('controllers.RoomConfigurations'); _root['controllers']['RoomConfigurations']['logicalInputsHardware2Default'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "room_configurations/logical_inputs_hardware2_default"})
+        }
+      ;
+_nS('controllers.RoomConfigurations'); _root['controllers']['RoomConfigurations']['logicalInputsHardware3Default'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "room_configurations/logical_inputs_hardware3_default"})
+        }
+      ;
+_nS('controllers.Rooms'); _root['controllers']['Rooms']['allRoomsDropdownForScheduling'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "rooms/all"})
+        }
+      ;
+_nS('controllers.Rooms'); _root['controllers']['Rooms']['delete'] = 
+        function() {
+          return _wA({method:"DELETE", url:"/" + "rooms/delete"})
+        }
+      ;
+_nS('controllers.Rooms'); _root['controllers']['Rooms']['getAddRoomModal'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "rooms/create"})
+        }
+      ;
+_nS('controllers.Rooms'); _root['controllers']['Rooms']['getBuildingFilterOptions'] = 
+        function(campusId) {
+          return _wA({method:"GET", url:"/" + "rooms/getBuildingFilterOptions" + _qS([(function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("campusId", campusId)])})
+        }
+      ;
+_nS('controllers.Rooms'); _root['controllers']['Rooms']['getCampusAndBuildingFilterOptions'] = 
+        function(campusId) {
+          return _wA({method:"GET", url:"/" + "rooms/getCampusAndBuildingFilterOptions" + _qS([(function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("campusId", campusId)])})
+        }
+      ;
+_nS('controllers.Rooms'); _root['controllers']['Rooms']['getUpdateForm'] = 
+        function(roomId) {
+          return _wA({method:"GET", url:"/" + "rooms/getUpdateForm/" + (function(k,v) {return v})("roomId", encodeURIComponent(roomId))})
+        }
+      ;
+_nS('controllers.Rooms'); _root['controllers']['Rooms']['removeDevice'] = 
+        function(roomId) {
+          return _wA({method:"POST", url:"/" + "rooms/" + (function(k,v) {return v})("roomId", encodeURIComponent(roomId)) + "/removeDevice"})
+        }
+      ;
+_nS('controllers.Rooms'); _root['controllers']['Rooms']['search'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "rooms/search"})
+        }
+      ;
+_nS('controllers.SectionAnalytics'); _root['controllers']['SectionAnalytics']['queueCanvasMetricsImport'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "section/canvas/queue-metrics-import"})
+        }
+      ;
+_nS('controllers.SectionContent'); _root['controllers']['SectionContent']['search'] = 
+        function(sectionId) {
+          return _wA({method:"POST", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/search"})
+        }
+      ;
+_nS('controllers.SectionHome'); _root['controllers']['SectionHome']['index'] = 
+        function(sectionId,contentId) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/home" + _qS([(contentId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("contentId", contentId))])})
+        }
+      ;
+_nS('controllers.Sections'); _root['controllers']['Sections']['deleteSection'] = 
+        function(courseId,sectionId) {
+          return _wA({method:"DELETE", url:"/" + "admin/courses/" + (function(k,v) {return v})("courseId", encodeURIComponent(courseId)) + "/sections/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId))})
+        }
+      ;
+_nS('controllers.Sections'); _root['controllers']['Sections']['getCreateSectionModal'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "admin/section/create"})
+        }
+      ;
+_nS('controllers.Sections'); _root['controllers']['Sections']['getEditSectionModal'] = 
+        function(courseId,sectionId) {
+          return _wA({method:"GET", url:"/" + "admin/courses/" + (function(k,v) {return v})("courseId", encodeURIComponent(courseId)) + "/sections/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/edit"})
+        }
+      ;
+_nS('controllers.Sections'); _root['controllers']['Sections']['getInstructorSections'] = 
+        function(courseId) {
+          return _wA({method:"GET", url:"/" + "instructor/sections" + _qS([(courseId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("courseId", courseId))])})
+        }
+      ;
+_nS('controllers.Sections'); _root['controllers']['Sections']['getNewSectionsModal'] = 
+        function(courseId) {
+          return _wA({method:"GET", url:"/" + "admin/sections/create" + _qS([(courseId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("courseId", courseId))])})
+        }
+      ;
+_nS('controllers.Sections'); _root['controllers']['Sections']['getSectionFilterOptions'] = 
+        function(courseId,termId) {
+          return _wA({method:"GET", url:"/" + "admin/courses/getSectionFilterOptions" + _qS([(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("courseId", courseId), (termId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("termId", termId))])})
+        }
+      ;
+_nS('controllers.Sections'); _root['controllers']['Sections']['sectionCloningModal'] = 
+        function(sectionId) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/clone-modal"})
+        }
+      ;
+_nS('controllers.SectionAnalytics'); _root['controllers']['SectionAnalytics']['lessonActivity'] = 
+        function(sectionId,lessonId) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/analytics/lesson-activity" + _qS([(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("lessonId", lessonId)])})
+        }
+      ;
+_nS('controllers.SectionAnalytics'); _root['controllers']['SectionAnalytics']['lessonEngagement'] = 
+        function(sectionId,lessonId) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/analytics/lesson-engagement" + _qS([(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("lessonId", lessonId)])})
+        }
+      ;
+_nS('controllers.SectionAnalytics'); _root['controllers']['SectionAnalytics']['sectionEngagement'] = 
+        function(sectionId) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/analytics/section-engagement"})
+        }
+      ;
+_nS('controllers.SectionAnalytics'); _root['controllers']['SectionAnalytics']['send'] = 
+        function(sectionId) {
+          return _wA({method:"POST", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/analytics/send"})
+        }
+      ;
+_nS('controllers.SectionAnalytics'); _root['controllers']['SectionAnalytics']['startExport'] = 
+        function(sectionId,exportType) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/analytics/" + (function(k,v) {return v})("exportType", encodeURIComponent(exportType)) + "/startExport"})
+        }
+      ;
+_nS('controllers.SlideDecks'); _root['controllers']['SlideDecks']['createAndPublish'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "slide_deck/create_and_publish"})
+        }
+      ;
+_nS('controllers.SlideDecks'); _root['controllers']['SlideDecks']['deleteSlides'] = 
+        function(slideDeckId) {
+          return _wA({method:"POST", url:"/" + "slide_deck/" + (function(k,v) {return v})("slideDeckId", encodeURIComponent(slideDeckId)) + "/delete_slides"})
+        }
+      ;
+_nS('controllers.SlideDecks'); _root['controllers']['SlideDecks']['editorPage'] = 
+        function(mediaId) {
+          return _wA({method:"GET", url:"/" + "slide_deck/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/editor"})
+        }
+      ;
+_nS('controllers.SlideDecks'); _root['controllers']['SlideDecks']['getSlideDeckNavigation'] = 
+        function(slideDeckId,lessonId) {
+          return _wA({method:"GET", url:"/" + "slide_deck/" + (function(k,v) {return v})("slideDeckId", encodeURIComponent(slideDeckId)) + "/lesson/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/navigation"})
+        }
+      ;
+_nS('controllers.SlideDecks'); _root['controllers']['SlideDecks']['getSlidesForEditing'] = 
+        function(mediaId) {
+          return _wA({method:"GET", url:"/" + "slide_deck/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/editor_slides"})
+        }
+      ;
+_nS('controllers.SlideDecks'); _root['controllers']['SlideDecks']['importSlides'] = 
+        function(slideDeckId) {
+          return _wA({method:"POST", url:"/" + "slide_deck/" + (function(k,v) {return v})("slideDeckId", encodeURIComponent(slideDeckId)) + "/import_slides"})
+        }
+      ;
+_nS('controllers.SlideDecks'); _root['controllers']['SlideDecks']['reorderSlides'] = 
+        function(slideDeckId) {
+          return _wA({method:"POST", url:"/" + "slide_deck/" + (function(k,v) {return v})("slideDeckId", encodeURIComponent(slideDeckId)) + "/reorder_slides"})
+        }
+      ;
+_nS('controllers.Slides'); _root['controllers']['Slides']['create'] = 
+        function(slideDeckId) {
+          return _wA({method:"POST", url:"/" + "slide_deck/" + (function(k,v) {return v})("slideDeckId", encodeURIComponent(slideDeckId)) + "/create"})
+        }
+      ;
+_nS('controllers.Slides'); _root['controllers']['Slides']['getSlideWithImage'] = 
+        function(lessonId,slideDeckId,slideId) {
+          return _wA({method:"GET", url:"/" + "slide_deck/lessonSlideWithImage" + _qS([(lessonId == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("lessonId", lessonId)), (slideDeckId == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("slideDeckId", slideDeckId)), (slideId == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("slideId", slideId))])})
+        }
+      ;
+_nS('controllers.Slides'); _root['controllers']['Slides']['getSlidePreview'] = 
+        function(slideDeckId,slideId,lessonId) {
+          return _wA({method:"GET", url:"/" + "slide_deck/slide/preview" + _qS([(slideDeckId == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("slideDeckId", slideDeckId)), (slideId == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("slideId", slideId)), (lessonId == null ? null : (function(k,v){return v!=null?(function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})(k,v):''})("lessonId", lessonId))])})
+        }
+      ;
+_nS('controllers.Slides'); _root['controllers']['Slides']['getSlidePreviewFull'] = 
+        function(slideDeckId,slideId) {
+          return _wA({method:"GET", url:"/" + "slide_deck/" + (function(k,v) {return v})("slideDeckId", encodeURIComponent(slideDeckId)) + "/slide/" + (function(k,v) {return v})("slideId", encodeURIComponent(slideId)) + "/preview/full"})
+        }
+      ;
+_nS('controllers.Slides'); _root['controllers']['Slides']['previewActivitySlide'] = 
+        function(slideDeckId) {
+          return _wA({method:"POST", url:"/" + "slide_deck/" + (function(k,v) {return v})("slideDeckId", encodeURIComponent(slideDeckId)) + "/preview_activity_slide"})
+        }
+      ;
+_nS('controllers.Slides'); _root['controllers']['Slides']['update'] = 
+        function(slideDeckId,slideId) {
+          return _wA({method:"PUT", url:"/" + "slide_deck/" + (function(k,v) {return v})("slideDeckId", encodeURIComponent(slideDeckId)) + "/slide/" + (function(k,v) {return v})("slideId", encodeURIComponent(slideId))})
+        }
+      ;
+_nS('controllers.StudentPay'); _root['controllers']['StudentPay']['submit'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "pay/student"})
+        }
+      ;
+_nS('controllers.StudyGuide'); _root['controllers']['StudyGuide']['getLessonView'] = 
+        function(sectionId,lessonId) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/study_guide_list/" + (function(k,v) {return v})("lessonId", encodeURIComponent(lessonId)) + "/"})
+        }
+      ;
+_nS('controllers.StudyGuide'); _root['controllers']['StudyGuide']['getNoteContent'] = 
+        function(noteId) {
+          return _wA({method:"GET", url:"/" + "note/" + (function(k,v) {return v})("noteId", encodeURIComponent(noteId)) + "/contentRef"})
+        }
+      ;
+_nS('controllers.StudyGuide'); _root['controllers']['StudyGuide']['getSectionView'] = 
+        function(sectionId) {
+          return _wA({method:"GET", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/study_guide_list"})
+        }
+      ;
+_nS('controllers.Terms'); _root['controllers']['Terms']['createTerm'] = 
+        function() {
+          return _wA({method:"POST", url:"/" + "admin/terms"})
+        }
+      ;
+_nS('controllers.Terms'); _root['controllers']['Terms']['deleteTerm'] = 
+        function(termId) {
+          return _wA({method:"DELETE", url:"/" + "admin/terms/" + (function(k,v) {return v})("termId", encodeURIComponent(termId))})
+        }
+      ;
+_nS('controllers.Terms'); _root['controllers']['Terms']['getManageTermsModal'] = 
+        function() {
+          return _wA({method:"GET", url:"/" + "admin/terms/manage"})
+        }
+      ;
+_nS('controllers.Terms'); _root['controllers']['Terms']['manageTerm'] = 
+        function(termId) {
+          return _wA({method:"GET", url:"/" + "admin/terms/" + (function(k,v) {return v})("termId", encodeURIComponent(termId)) + "/manage"})
+        }
+      ;
+_nS('controllers.Terms'); _root['controllers']['Terms']['updateTerm'] = 
+        function(termId) {
+          return _wA({method:"PUT", url:"/" + "admin/terms/" + (function(k,v) {return v})("termId", encodeURIComponent(termId))})
+        }
+      ;
+_nS('controllers.Toggles'); _root['controllers']['Toggles']['updateForDepartment'] = 
+        function(departmentId,feature) {
+          return _wA({method:"PUT", url:"/" + "departments/" + (function(k,v) {return v})("departmentId", encodeURIComponent(departmentId)) + "/toggles/" + (function(k,v) {return v})("feature", encodeURIComponent(feature))})
+        }
+      ;
+_nS('controllers.Toggles'); _root['controllers']['Toggles']['updateForInstitution'] = 
+        function(feature) {
+          return _wA({method:"PUT", url:"/" + "admin/toggles/" + (function(k,v) {return v})("feature", encodeURIComponent(feature))})
+        }
+      ;
+_nS('controllers.Toggles'); _root['controllers']['Toggles']['turnOffForMedia'] = 
+        function(publishableMediaId,feature) {
+          return _wA({method:"DELETE", url:"/" + "media/" + (function(k,v) {return v})("publishableMediaId", encodeURIComponent(publishableMediaId)) + "/toggles/" + (function(k,v) {return v})("feature", encodeURIComponent(feature))})
+        }
+      ;
+_nS('controllers.Toggles'); _root['controllers']['Toggles']['turnOnForMedia'] = 
+        function(publishableMediaId,feature) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("publishableMediaId", encodeURIComponent(publishableMediaId)) + "/toggles/" + (function(k,v) {return v})("feature", encodeURIComponent(feature))})
+        }
+      ;
+_nS('controllers.Toggles'); _root['controllers']['Toggles']['updateForOrganization'] = 
+        function(organizationId,feature) {
+          return _wA({method:"PUT", url:"/" + "organizations/" + (function(k,v) {return v})("organizationId", encodeURIComponent(organizationId)) + "/toggles/" + (function(k,v) {return v})("feature", encodeURIComponent(feature))})
+        }
+      ;
+_nS('controllers.Toggles'); _root['controllers']['Toggles']['updateForSection'] = 
+        function(sectionId,feature) {
+          return _wA({method:"PUT", url:"/" + "sections/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/toggles/" + (function(k,v) {return v})("feature", encodeURIComponent(feature))})
+        }
+      ;
+_nS('controllers.Transcriptions'); _root['controllers']['Transcriptions']['getEarliestTranscription'] = 
+        function(mediaId,transcriptionType,download) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/transcription/earliest" + _qS([(transcriptionType == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("transcriptionType", transcriptionType)), (download == null ? null : (function(k,v){return k+'='+(!!v)})("download", download))])})
+        }
+      ;
+_nS('controllers.Transcriptions'); _root['controllers']['Transcriptions']['getLatestTranscription'] = 
+        function(mediaId,transcriptionType,download) {
+          return _wA({method:"GET", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/transcription/latest" + _qS([(transcriptionType == null ? null : (function(k,v) {return encodeURIComponent(k)+'='+encodeURIComponent(v)})("transcriptionType", transcriptionType)), (download == null ? null : (function(k,v){return k+'='+(!!v)})("download", download))])})
+        }
+      ;
+_nS('controllers.Transcriptions'); _root['controllers']['Transcriptions']['uploadTranscription'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/transcription/upload"})
+        }
+      ;
+_nS('controllers.Transcriptions'); _root['controllers']['Transcriptions']['revertForMedia'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/transcription/revert"})
+        }
+      ;
+_nS('controllers.UserSections'); _root['controllers']['UserSections']['getUserEnrollmentModal'] = 
+        function(userId) {
+          return _wA({method:"GET", url:"/" + "admin/user/" + (function(k,v) {return v})("userId", encodeURIComponent(userId)) + "/enrollment_modal"})
+        }
+      ;
+_nS('controllers.UserSections'); _root['controllers']['UserSections']['makeInstructor'] = 
+        function(sectionId,userId) {
+          return _wA({method:"PUT", url:"/" + "admin/sections/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/user/" + (function(k,v) {return v})("userId", encodeURIComponent(userId)) + "/make_instructor"})
+        }
+      ;
+_nS('controllers.UserSections'); _root['controllers']['UserSections']['makeStudent'] = 
+        function(sectionId,userId) {
+          return _wA({method:"PUT", url:"/" + "admin/sections/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/user/" + (function(k,v) {return v})("userId", encodeURIComponent(userId)) + "/make_student"})
+        }
+      ;
+_nS('controllers.UserSections'); _root['controllers']['UserSections']['makeTeachingAssistant'] = 
+        function(sectionId,userId) {
+          return _wA({method:"PUT", url:"/" + "admin/sections/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/user/" + (function(k,v) {return v})("userId", encodeURIComponent(userId)) + "/make_teaching_assistant"})
+        }
+      ;
+_nS('controllers.UserSections'); _root['controllers']['UserSections']['revoke'] = 
+        function(sectionId,userId) {
+          return _wA({method:"DELETE", url:"/" + "admin/sections/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/user/" + (function(k,v) {return v})("userId", encodeURIComponent(userId))})
+        }
+      ;
+_nS('controllers.UserSections'); _root['controllers']['UserSections']['removeUserSections'] = 
+        function(sectionId) {
+          return _wA({method:"DELETE", url:"/" + "section/" + (function(k,v) {return v})("sectionId", encodeURIComponent(sectionId)) + "/users"})
+        }
+      ;
+_nS('controllers.Videos'); _root['controllers']['Videos']['edit'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/edit"})
+        }
+      ;
+_nS('controllers.Videos'); _root['controllers']['Videos']['editorPage'] = 
+        function(mediaId) {
+          return _wA({method:"GET", url:"/" + "video/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/editor"})
+        }
+      ;
+_nS('controllers.Videos'); _root['controllers']['Videos']['getVideoForEditing'] = 
+        function(mediaId) {
+          return _wA({method:"GET", url:"/" + "video/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/editor_video"})
+        }
+      ;
+_nS('controllers.Videos'); _root['controllers']['Videos']['restoreUnedited'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/restore"})
+        }
+      ;
+_nS('controllers.Videos'); _root['controllers']['Videos']['saveAs'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/saveAs"})
+        }
+      ;
+_nS('controllers.Videos'); _root['controllers']['Videos']['savePendingEdits'] = 
+        function(mediaId) {
+          return _wA({method:"POST", url:"/" + "media/" + (function(k,v) {return v})("mediaId", encodeURIComponent(mediaId)) + "/savePendingEdits"})
+        }
+      ;
+})(__routes__)

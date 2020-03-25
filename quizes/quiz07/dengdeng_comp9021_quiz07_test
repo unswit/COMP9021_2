@@ -1,0 +1,82 @@
+#!/usr/bin/perl
+
+print("瑞哥版权所有，更多资料请添加微信marey_marey111\n");
+print("瑞哥版权所有，跟多资料请参阅视频：https://www.youtube.com/channel/UCH7MTlHOfCjEa5yWII5P5rg?view_as=subscriber\n");
+
+@removes = ();
+
+push @removes,'Enter two integers, the second one being strictly positive: ';
+
+# check input params
+die "usage: dengdeng_comp9021_ass01_test python_file_name test_case_filename\n" if @ARGV !=2;
+
+$python_file_name = shift;
+# check exists
+die "dengdeng_comp9021_ass01_test: error: $python_file_name not exists!\n" if ! -e $python_file_name;
+
+$test_file_name = shift;
+# check exists
+die "dengdeng_comp9021_ass01_test: error: $test_file_name not exists!\n" if ! -e $test_file_name;
+
+open my $in, '<', $test_file_name or die "$test_file_name 文件无法打开\n";
+my @lines = <$in>;
+close $in;
+
+my $command = "";
+my @exp_results = ();
+foreach my $line (@lines){
+		chomp $line;
+
+		if ( $line =~ /TEST \d+ BEGIN/ ) {
+		    print("$line\n");
+		    @exp_results = ();
+		    next;
+		}
+
+        if ($line =~ /TEST \d+ END/ ) {
+            $command =~ s/\|.*/| python3 $python_file_name/g;
+
+            my $exec_command = $command;
+            $exec_command =~ s/-e//g;
+
+            my @real_results = (`$exec_command`);
+            my $real = join("", @real_results);
+
+            for my $item (@removes) {
+              $real =~ s/$item//g;
+            }
+
+            my $exp = join( "\n", @exp_results);
+            $exp =~ s/\s+$//g;
+            $real =~ s/\s+$//g;
+
+            if ("$real" eq "$exp"){
+                print("==============Test Pass==========\n");
+            }else {
+                print("==============Test Error==========\n");
+                print("COMMADN:\n$command\n");
+                print("COMPARE:\n*********************\n$real\n===================$exp\n");
+                print("==============Your Output=========\n");
+                print("$real\n");
+                print("==============Expect Output=======\n");
+                print("$exp\n");
+            }
+            print("$line\n");
+            next;
+        }
+
+        if ($line =~ /\$ /) {
+            $line =~ s/\$ //g;
+            $command = $line;
+            next;
+        }
+
+        my $count = 0;
+        for my $item (@removes) {
+            $count ++ if $line =~ /$item/;
+        }
+
+        if ($count == 0) {
+            push @exp_results,$line
+        }
+}
